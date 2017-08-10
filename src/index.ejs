@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title><%= htmlWebpackPlugin.options.title %></title>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"/>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			h1 {
+				font-size: 28px;
+				margin-bottom: 10px;
+			}
+
+			.App,
+			.Redux {
+				height: 50vh;
+				min-height: 200px;
+				overflow: auto;
+			}
+
+			.Redux {
+				border-top: 1px solid #DDD;
+				background: #EEE;
+				padding: 20px;
+				font-family: monospace;
+			}
+
+			.User,
+			.Messages {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				height: 100%;
+				width: 50%;
+				padding: 10px;
+			}
+
+			.User {
+				border-right: 1px solid #DDD;
+			}
+			.User-form {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				padding: 20px;
+				text-align: center;
+				background: #FFF;
+			}
+
+			.Messages-info {
+				border-bottom: 1px solid #AAA;
+				padding-bottom: 5px;
+				margin-bottom: 10px;
+			}
+			.Messages-form {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				padding: 5px 20px;
+				border-top: 1px solid #AAA;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="App">
+			<div class="User">
+				<form id="user-form" class="User-form">
+					<h1>Login</h1>
+					<input id="user-form-input" class="User-form-input" placeholder="username"/>
+					<button>Login</button>
+				</form>
+
+				<h1 id="user-name" class="User-name"></h1>
+				<ul>
+					<li id="user-age" class="User-age"></li>
+					<li id="user-color" class="User-color"></li>
+					<li id="user-msgcount" class="User-msgcount"></li>
+				</ul>
+				<button id="user-logout">Logout</button>
+			</div><!--
+			--><div class="Messages">
+				<div class="Messages-info">
+					<h1>Chatroom</h1>
+					<span id="message-info-users"></span>
+					-
+					<span id="message-info-lastsent"></span>
+				</div>
+				<ul id="message-list" class="Messages-list"></ul>
+				<form class="Messages-form" id="message-form">
+					<input id="message-form-input" class="Messages-form-input" placeholder="message"/>
+					<button>Send</button>
+				</form>
+			</div>
+		</div>
+
+		<pre class="Redux" id="redux-store"></pre>
+	</body>
+</html>
